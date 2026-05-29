@@ -1,0 +1,35 @@
+metric,value
+particles,200000
+transmitted,4623
+success_rate,0.023115
+pinhole_area_fraction,0.0265625
+mean_first_passage_s,4526.631517032128
+median_first_passage_s,4485.184411259147
+p10_first_passage_s,950.7571226173552
+p90_first_passage_s,8175.063157977486
+mean_path_steps_success,2493028.721176725
+median_path_steps_success,2463186.0
+D_eff_m2_s,1.2177929613352438e-20
+tortuosity_steps_over_thickness,118715.65338936786
+non_transmitted_trapped,195377
+trapped_mean_depth_nm,2.5697702390762474
+trapped_median_depth_nm,3.0
+elapsed_s,610.1297507286072
+model,corrected_bilayer_v2
+corrections,"[""Al2O3_matrix_impermeable"", ""ZnO_bulk_impermeable"", ""surface_reflection_mechanism"", ""GB_dead_end_blockage"", ""D_eff_1D_formula""]"
+environment.temperature_c,38.0
+environment.temperature_k,311.15
+environment.rh,0.9
+periods,1
+total_thickness_nm,10.5
+width_nm,320.0
+dx_nm,0.5
+max_events,5000000
+barriers_eV.E_Al_pinhole,0.58
+barriers_eV.E_ZnO_GB,0.72
+barriers_eV.E_interface,0.62
+barriers_eV.E_surface,0.45
+barriers_eV.E_Al_matrix,infinite (impermeable)
+barriers_eV.E_ZnO_bulk,infinite (impermeable)
+gb_block_fraction,0.2
+geometry_metadata.periods,"[{""period"": 1, ""pinholes"": [{""x_nm"": 4.735244851008602, ""diameter_nm"": 1.1560283025768128}, {""x_nm"": 83.81386349120353, ""diameter_nm"": 1.4177769828427746}, {""x_nm"": 159.09238903893723, ""diameter_nm"": 1.0461552016156315}, {""x_nm"": 230.1345098173524, ""diameter_nm"": 1.015615673823966}, {""x_nm"": 283.2014442277379, ""diameter_nm"": 1.6704372501092717}], ""zno_grain_count"": 45, ""zno_crystal_structure"": ""polycrystalline hexagonal wurtzite ZnO"", ""zno_grain_model"": ""single_truncated_lateral_wurtzite_grain_layer_wavy_gb"", ""zno_mean_grain_size_nm"": 7.5, ""zno_thickness_to_mean_grain_size_ratio"": 0.8, ""zno_gb_wander_nm"": 1.0, ""zno_gb_fraction"": 0.14986979166666667, ""gb_blocked_fraction"": 0.2, ""al2o3_free_volume_defects"": 18, ""al2o3_free_volume_defect_model"": ""non_through_local_pockets_not_surface_entrances"", ""al2o3_free_volume_defects_detail"": [{""x_nm"": 266.4543507050927, ""diameter_nm"": 1.1315748975464146, ""height_nm"": 1.5, ""y_start_nm"": 1.5, ""y_end_nm"": 3.0, ""through_pinhole"": false}, {""x_nm"": 134.09844161596874, ""diameter_nm"": 1.2440967485637897, ""height_nm"": 0.5, ""y_start_nm"": 1.5, ""y_end_nm"": 2.0, ""through_pinhole"": false}, {""x_nm"": 231.7376807628072, ""diameter_nm"": 0.8120714309050606, ""height_nm"": 0.5, ""y_start_nm"": 1.0, ""y_end_nm"": 1.5, ""through_pinhole"": false}, {""x_nm"": 91.99243487129273, ""diameter_nm"": 0.9769902506870255, ""height_nm"": 0.5, ""y_start_nm"": 2.5, ""y_end_nm"": 3.0, ""through_pinhole"": false}, {""x_nm"": 302.21604712279304, ""diameter_nm"": 1.2298348178414078, ""height_nm"": 1.0, ""y_start_nm"": 1.5, ""y_end_nm"": 2.5, ""through_pinhole"": false}, {""x_nm"": 288.60049913734815, ""diameter_nm"": 1.550317786955567, ""height_nm"": 1.0, ""y_start_nm"": 2.0, ""y_end_nm"": 3.0, ""through_pinhole"": false}, {""x_nm"": 158.0174127968292, ""diameter_nm"": 1.160434731211068, ""height_nm"": 1.5, ""y_start_nm"": 1.5, ""y_end_nm"": 3.0, ""through_pinhole"": false}, {""x_nm"": 31.894590642916256, ""diameter_nm"": 1.250159657136981, ""height_nm"": 1.0, ""y_start_nm"": 2.0, ""y_end_nm"": 3.0, ""through_pinhole"": false}, {""x_nm"": 122.69720334373855, ""diameter_nm"": 0.8691460025189266, ""height_nm"": 1.0, ""y_start_nm"": 1.5, ""y_end_nm"": 2.5, ""through_pinhole"": false}, {""x_nm"": 139.27273667330482, ""diameter_nm"": 1.7595760510121778, ""height_nm"": 0.5, ""y_start_nm"": 2.5, ""y_end_nm"": 3.0, ""through_pinhole"": false}, {""x_nm"": 271.88042738064905, ""diameter_nm"": 1.6134658994517916, ""height_nm"": 0.5, ""y_start_nm"": 2.0, ""y_end_nm"": 2.5, ""through_pinhole"": false}, {""x_nm"": 45.90742345979205, ""diameter_nm"": 1.5847916356588994, ""height_nm"": 1.0, ""y_start_nm"": 2.0, ""y_end_nm"": 3.0, ""through_pinhole"": false}, {""x_nm"": 72.91137205632569, ""diameter_nm"": 1.6191891003855885, ""height_nm"": 1.5, ""y_start_nm"": 1.5, ""y_end_nm"": 3.0, ""through_pinhole"": false}, {""x_nm"": 115.0417775715163, ""diameter_nm"": 1.0406118648580711, ""height_nm"": 1.5, ""y_start_nm"": 1.5, ""y_end_nm"": 3.0, ""through_pinhole"": false}, {""x_nm"": 146.7997628938329, ""diameter_nm"": 0.8680888722526013, ""height_nm"": 2.5, ""y_start_nm"": 1.0, ""y_end_nm"": 3.5, ""through_pinhole"": false}, {""x_nm"": 247.41717909283423, ""diameter_nm"": 0.8901279074398081, ""height_nm"": 2.5, ""y_start_nm"": 1.0, ""y_end_nm"": 3.5, ""through_pinhole"": false}, {""x_nm"": 187.90956064360535, ""diameter_nm"": 1.017663058689035, ""height_nm"": 0.5, ""y_start_nm"": 1.5, ""y_end_nm"": 2.0, ""through_pinhole"": false}, {""x_nm"": 134.17102082297112, ""diameter_nm"": 1.2073318289379977, ""height_nm"": 0.5, ""y_start_nm"": 2.5, ""y_end_nm"": 3.0, ""through_pinhole"": false}], ""pinhole_coverage"": 0.0265625}]"

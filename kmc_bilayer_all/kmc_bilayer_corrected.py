@@ -226,7 +226,11 @@ def build_bilayer_structure(width_nm=320.0, dx_nm=0.5, seed=20260515,
                             periods=1, al_nm=4.5, zno_nm=6.0,
                             pinhole_spacing_min_nm=50.0, pinhole_spacing_max_nm=80.0,
                             pinhole_d_min_nm=1.0, pinhole_d_max_nm=2.0,
+                            al_free_volume_count=18,
+                            al_free_volume_d_min_nm=0.8,
+                            al_free_volume_d_max_nm=1.8,
                             grain_min_nm=5.0, grain_max_nm=10.0,
+                            zno_gb_wander_nm=1.0,
                             offset_min_nm=25.0, offset_max_nm=50.0,
                             gb_block_fraction=0.20):
     """Build corrected bilayer structure.
@@ -293,13 +297,45 @@ def build_bilayer_structure(width_nm=320.0, dx_nm=0.5, seed=20260515,
                     pinhole_mask[xi] = 1
             pinholes.append({'x_nm': float(c_nm), 'diameter_nm': float(d_nm)})
 
+        # --- Non-through Al2O3 free-volume pockets ---
+        # TEM/HRTEM-based interpretation: amorphous Al2O3 can contain local
+        # free-volume pockets or terminated defects that affect local trapping
+        # but should not be counted as through-pinhole entrances.
+        free_volume_defects = []
+        for _ in range(al_free_volume_count):
+            x_nm = rng.uniform(0.0, width_nm)
+            d_nm = rng.uniform(al_free_volume_d_min_nm, al_free_volume_d_max_nm)
+            r = max(1.0, (d_nm / 2.0) / dx_nm)
+            margin = max(1, int(math.ceil(r)) + 1)
+            if al_cells <= 2 * margin + 1:
+                pocket_h = 1
+                y_start = al_start + al_cells // 2
+            else:
+                max_h = max(1, al_cells - 2 * margin)
+                pocket_h = int(rng.integers(1, max_h + 1))
+                y_low = al_start + margin
+                y_high = al_end - margin - pocket_h
+                y_start = int(rng.integers(y_low, max(y_low + 1, y_high + 1)))
+            cx = x_nm / dx_nm
+            y_stop = min(al_end - margin, y_start + pocket_h)
+            for yy in range(y_start, y_stop):
+                draw_disk(grid, yy, cx + rng.normal(0.0, 0.18), r, CELL_AL_PINHOLE)
+            free_volume_defects.append({
+                'x_nm': float(x_nm),
+                'diameter_nm': float(d_nm),
+                'height_nm': float(pocket_h * dx_nm),
+                'y_start_nm': float((y_start - al_start) * dx_nm),
+                'y_end_nm': float((y_stop - al_start) * dx_nm),
+                'through_pinhole': False,
+            })
+
         # --- ZnO grain boundary network ---
         zno_h = z_end - z_start
         mean_grain_nm = 0.5 * (grain_min_nm + grain_max_nm)
         mean_grain_cells = max(2.0, mean_grain_nm / dx_nm)
         thickness_to_grain = zno_nm / mean_grain_nm
         if thickness_to_grain < 1.0:
-            grain_model = 'single_truncated_lateral_wurtzite_grain_layer'
+            grain_model = 'single_truncated_lateral_wurtzite_grain_layer_wavy_gb'
             labels = np.empty((zno_h, width), dtype=np.int32)
             boundary_cols = []
             x_nm = rng.uniform(0.0, mean_grain_nm)
@@ -318,8 +354,15 @@ def build_bilayer_structure(width_nm=320.0, dx_nm=0.5, seed=20260515,
 
             gb_mask = np.zeros((zno_h, width), dtype=bool)
             for col in boundary_cols:
-                gb_mask[:, col % width] = True
-                gb_mask[:, (col - 1) % width] = True
+                phase = rng.uniform(0.0, 2.0 * math.pi)
+                slope = rng.uniform(-zno_gb_wander_nm, zno_gb_wander_nm) / max(zno_h - 1, 1)
+                amp_cells = max(0.5, zno_gb_wander_nm / dx_nm)
+                for yy in range(zno_h):
+                    wave = amp_cells * math.sin(phase + 2.0 * math.pi * yy / max(zno_h - 1, 1))
+                    drift = slope * yy / dx_nm
+                    cc = int(round(col + wave + drift)) % width
+                    gb_mask[yy, cc] = True
+                    gb_mask[yy, (cc - 1) % width] = True
 
             # Pinholes seldom land exactly above a boundary in an ultrathin
             # single grain layer. Add offset GB segments that require interface
@@ -327,8 +370,12 @@ def build_bilayer_structure(width_nm=320.0, dx_nm=0.5, seed=20260515,
             for c_nm in centers:
                 off_nm = rng.choice([-1.0, 1.0]) * rng.uniform(offset_min_nm, offset_max_nm)
                 col = int(round(((c_nm + off_nm) % width_nm) / dx_nm)) % width
-                gb_mask[:, col] = True
-                gb_mask[:, (col - 1) % width] = True
+                phase = rng.uniform(0.0, 2.0 * math.pi)
+                amp_cells = max(0.5, zno_gb_wander_nm / dx_nm)
+                for yy in range(zno_h):
+                    cc = int(round(col + amp_cells * math.sin(phase + math.pi * yy / max(zno_h - 1, 1)))) % width
+                    gb_mask[yy, cc] = True
+                    gb_mask[yy, (cc - 1) % width] = True
         else:
             grain_model = 'two_dimensional_voronoi_grain_network'
             zno_area_cells = width * zno_h
@@ -405,8 +452,12 @@ def build_bilayer_structure(width_nm=320.0, dx_nm=0.5, seed=20260515,
             'zno_grain_model': grain_model,
             'zno_mean_grain_size_nm': float(mean_grain_nm),
             'zno_thickness_to_mean_grain_size_ratio': float(thickness_to_grain),
+            'zno_gb_wander_nm': float(zno_gb_wander_nm),
             'zno_gb_fraction': gb_frac,
             'gb_blocked_fraction': float(gb_block_fraction),
+            'al2o3_free_volume_defects': int(len(free_volume_defects)),
+            'al2o3_free_volume_defect_model': 'non_through_local_pockets_not_surface_entrances',
+            'al2o3_free_volume_defects_detail': free_volume_defects,
             'pinhole_coverage': float(pinhole_mask.sum() / width),
         })
 
