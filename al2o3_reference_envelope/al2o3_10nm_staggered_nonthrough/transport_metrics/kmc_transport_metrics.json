@@ -1,0 +1,187 @@
+{
+  "source_raw_npz": "/home/xiao/文档/KMC/al2o3_reference_envelope/al2o3_10nm_staggered_nonthrough/al2o3_10nm_staggered_nonthrough_raw.npz",
+  "model": "single_al2o3_10nm_staggered_nonthrough_defects_connectivity_limited",
+  "assumptions": {
+    "dx_nm": 0.5,
+    "film_thickness_nm": 10.0,
+    "temperature_c": 38.0,
+    "rh_high": 0.9,
+    "rh_low": 0.0,
+    "wvtr_formula": "WVTR = D_eff * delta_C / L * 86400 * 1000, units g m^-2 day^-1",
+    "literature_sorbed_delta_c_kg_m3_from_C1_0.00677_g_cm3": 6.77,
+    "transport_assumption": "Dense Al2O3 matrix is impermeable and staggered defects do not form a top-to-bottom connected path; transport is connectivity-limited to zero in this idealized model.",
+    "defect_cell_fraction": 0.019453125,
+    "top_mask_fraction": 0.021875,
+    "connected_defect_components": 15,
+    "top_to_bottom_percolating_defect_components": 0,
+    "defects": [
+      {
+        "layer_index": 0,
+        "y_start_cell": 0,
+        "y_end_cell": 4,
+        "center_nm": 18.529508448518143,
+        "diameter_nm": 1.4924714706455706
+      },
+      {
+        "layer_index": 0,
+        "y_start_cell": 0,
+        "y_end_cell": 4,
+        "center_nm": 91.84823985912186,
+        "diameter_nm": 1.3729366321012701
+      },
+      {
+        "layer_index": 0,
+        "y_start_cell": 0,
+        "y_end_cell": 4,
+        "center_nm": 148.3023496491417,
+        "diameter_nm": 1.712516249251935
+      },
+      {
+        "layer_index": 0,
+        "y_start_cell": 0,
+        "y_end_cell": 4,
+        "center_nm": 294.058397281656,
+        "diameter_nm": 1.4288896852899564
+      },
+      {
+        "layer_index": 1,
+        "y_start_cell": 5,
+        "y_end_cell": 9,
+        "center_nm": 47.36762850812334,
+        "diameter_nm": 1.1833119684172115
+      },
+      {
+        "layer_index": 1,
+        "y_start_cell": 5,
+        "y_end_cell": 9,
+        "center_nm": 175.5020089819852,
+        "diameter_nm": 1.2399132111063913
+      },
+      {
+        "layer_index": 1,
+        "y_start_cell": 5,
+        "y_end_cell": 9,
+        "center_nm": 252.4205320591442,
+        "diameter_nm": 1.7455167551431288
+      },
+      {
+        "layer_index": 1,
+        "y_start_cell": 5,
+        "y_end_cell": 9,
+        "center_nm": 4.024452425672337,
+        "diameter_nm": 1.8885885720924644
+      },
+      {
+        "layer_index": 2,
+        "y_start_cell": 11,
+        "y_end_cell": 14,
+        "center_nm": 310.65403731549776,
+        "diameter_nm": 1.0640301801910965
+      },
+      {
+        "layer_index": 2,
+        "y_start_cell": 11,
+        "y_end_cell": 14,
+        "center_nm": 198.16310456656547,
+        "diameter_nm": 1.8330337299586028
+      },
+      {
+        "layer_index": 3,
+        "y_start_cell": 16,
+        "y_end_cell": 19,
+        "center_nm": 53.20477916461536,
+        "diameter_nm": 1.2259916207528105
+      },
+      {
+        "layer_index": 3,
+        "y_start_cell": 16,
+        "y_end_cell": 19,
+        "center_nm": 125.89589811530577,
+        "diameter_nm": 1.9879734561692366
+      },
+      {
+        "layer_index": 3,
+        "y_start_cell": 16,
+        "y_end_cell": 19,
+        "center_nm": 192.99259645920395,
+        "diameter_nm": 1.6897870374363535
+      },
+      {
+        "layer_index": 3,
+        "y_start_cell": 16,
+        "y_end_cell": 19,
+        "center_nm": 257.24432479549733,
+        "diameter_nm": 1.1898043303533585
+      },
+      {
+        "layer_index": 3,
+        "y_start_cell": 16,
+        "y_end_cell": 19,
+        "center_nm": 12.034289775021819,
+        "diameter_nm": 1.7626825751894943
+      }
+    ]
+  },
+  "Ptrans": 0.0,
+  "particles": null,
+  "transmitted": null,
+  "non_transmitted": null,
+  "FPT_success_s": {
+    "count": 0,
+    "mean": null,
+    "median": null,
+    "std": null,
+    "p01": null,
+    "p05": null,
+    "p10": null,
+    "p25": null,
+    "p75": null,
+    "p90": null,
+    "p95": null,
+    "p99": null,
+    "min": null,
+    "max": null
+  },
+  "path_length_success_mm": {
+    "count": 0,
+    "mean": null,
+    "median": null,
+    "std": null,
+    "p01": null,
+    "p05": null,
+    "p10": null,
+    "p25": null,
+    "p75": null,
+    "p90": null,
+    "p95": null,
+    "p99": null,
+    "min": null,
+    "max": null
+  },
+  "tortuosity_success": {
+    "count": 0,
+    "mean": null,
+    "median": null,
+    "std": null,
+    "p01": null,
+    "p05": null,
+    "p10": null,
+    "p25": null,
+    "p75": null,
+    "p90": null,
+    "p95": null,
+    "p99": null,
+    "min": null,
+    "max": null
+  },
+  "D_eff_m2_s": {
+    "success_mean_FPT": 0.0,
+    "success_median_FPT": null
+  },
+  "WVTR_g_m2_day": {
+    "using_ideal_vapor_delta_c": 0.0,
+    "using_user_delta_c": null,
+    "using_literature_sorbed_C1_6p77_kg_m3": 0.0,
+    "relative_WVTR_factor_equals_relative_D_eff": true
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "particles": 200000,
+  "transmitted": 188225,
+  "success_rate": 0.941125,
+  "mean_path_steps_all": 10776.64973,
+  "median_path_steps_all": 400.0,
+  "mean_first_passage_s": 9788.207620262798,
+  "median_first_passage_s": 7318.609214563227,
+  "p10_first_passage_s": 2120.9518864744873,
+  "p90_first_passage_s": 20838.963880896823,
+  "mean_path_steps_success": 3943.8435170673397,
+  "median_path_steps_success": 379.0,
+  "relative_D_eff_m2_s": 1.8772589132622693e-21,
+  "tortuosity_steps_over_thickness": 375.6041444826038,
+  "elapsed_s": 8.797561407089233,
+  "environment": {
+    "temperature_c": 38.0,
+    "temperature_k": 311.15,
+    "rh": 0.9
+  },
+  "periods": 1,
+  "al2o3_nm_per_period": 4.5,
+  "zno_nm_per_period": 6.0,
+  "total_thickness_nm": 10.5,
+  "width_nm": 320.0,
+  "dx_nm": 0.5,
+  "width_cells": 640,
+  "height_cells": 21,
+  "al_cells_per_period": 9,
+  "zno_cells_per_period": 12,
+  "max_events": 120000,
+  "max_time_s": 10000000000.0,
+  "threads_per_block": 256,
+  "seed": 20260514,
+  "nu_s_inv": 1000000000000.0,
+  "barriers_eV": {
+    "E_Al_matrix": 0.9,
+    "E_Al_pinhole": 0.58,
+    "E_ZnO_bulk": 1.08,
+    "E_ZnO_GB": 0.64,
+    "E_interface": 0.76
+  },
+  "geometry_metadata": {
+    "periods": [
+      {
+        "period": 1,
+        "pinholes": [
+          {
+            "x_nm": 49.79469708015912,
+            "diameter_nm": 1.9392700803153444
+          },
+          {
+            "x_nm": 102.24826758629598,
+            "diameter_nm": 1.7484701119261985
+          },
+          {
+            "x_nm": 175.5011200063704,
+            "diameter_nm": 1.3423246622656122
+          },
+          {
+            "x_nm": 236.68380106136945,
+            "diameter_nm": 1.1288789785175901
+          },
+          {
+            "x_nm": 304.5311164303264,
+            "diameter_nm": 1.608215171714163
+          }
+        ],
+        "gb_count": 49
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "particles": 200000,
+  "transmitted": 36660,
+  "success_rate": 0.1833,
+  "pinhole_area_fraction": 0.025,
+  "mean_first_passage_s": 4258.359460179443,
+  "median_first_passage_s": 4173.3980303426615,
+  "p10_first_passage_s": 830.9574602661139,
+  "p90_first_passage_s": 7822.630155303531,
+  "mean_path_steps_success": 2408578.28832515,
+  "median_path_steps_success": 2362548.0,
+  "D_eff_m2_s": 1.2945126055111633e-20,
+  "tortuosity_steps_over_thickness": 114694.20420595953,
+  "non_transmitted_trapped": 163340,
+  "trapped_mean_depth_nm": 2.7935135300599976,
+  "trapped_median_depth_nm": 3.0,
+  "elapsed_s": 605.1984236240387,
+  "model": "corrected_bilayer_v2",
+  "corrections": [
+    "Al2O3_matrix_impermeable",
+    "ZnO_bulk_impermeable",
+    "surface_reflection_mechanism",
+    "GB_dead_end_blockage",
+    "D_eff_1D_formula"
+  ],
+  "environment": {
+    "temperature_c": 38.0,
+    "temperature_k": 311.15,
+    "rh": 0.9
+  },
+  "periods": 1,
+  "total_thickness_nm": 10.5,
+  "width_nm": 320.0,
+  "dx_nm": 0.5,
+  "max_events": 5000000,
+  "barriers_eV": {
+    "E_Al_pinhole": 0.58,
+    "E_ZnO_GB": 0.72,
+    "E_interface": 0.62,
+    "E_surface": 0.45,
+    "E_Al_matrix": "infinite (impermeable)",
+    "E_ZnO_bulk": "infinite (impermeable)"
+  },
+  "gb_block_fraction": 0.2,
+  "geometry_metadata": {
+    "periods": [
+      {
+        "period": 1,
+        "pinholes": [
+          {
+            "x_nm": 63.69634906468236,
+            "diameter_nm": 1.8870167292407483
+          },
+          {
+            "x_nm": 115.72048665974401,
+            "diameter_nm": 1.1401993869048914
+          },
+          {
+            "x_nm": 178.3767610644728,
+            "diameter_nm": 1.9577263559404798
+          },
+          {
+            "x_nm": 254.582316938204,
+            "diameter_nm": 1.2866487006518406
+          }
+        ],
+        "zno_grain_count": 38,
+        "zno_gb_fraction": 0.118359375,
+        "gb_blocked_fraction": 0.2,
+        "pinhole_coverage": 0.025
+      }
+    ]
+  }
+}

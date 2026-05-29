@@ -1,0 +1,11 @@
+metric,bilayer_4p5nm_Al2O3_6nm_ZnO,single_10nm_Al2O3,direction_for_better_barrier,bilayer_advantage
+Ptrans,0.1833,1.0,lower,5.45554x lower
+FPT mean / s,4258.359460179443,0.655689057171094,higher,6494.48x higher
+FPT median / s,4173.3980303426615,0.514337027916545,higher,8114.13x higher
+Lpath mean / mm,1.2042891441625752,0.0033141406399999998,higher,363.379x higher
+Lpath median / mm,1.181274,0.0015915,higher,742.239x higher
+tau mean,114694.20420595953,331.414064,higher,346.075x higher
+tau median,112502.28571428571,159.15,higher,706.895x higher
+D_eff / m2 s-1,1.2945126055111633e-20,7.625565724052204e-17,lower,5890.68x lower
+WVTR ideal vapor / g m-2 day-1,4.426369452151686e-06,0.027378064596861113,lower,6185.22x lower
+WVTR sorbed C1 / g m-2 day-1,0.00072113968506327,4.460406907838407,lower,6185.22x lower

@@ -1,0 +1,54 @@
+{
+  "particles": 200000,
+  "transmitted": 200000,
+  "success_rate": 1.0,
+  "pinhole_area_fraction": 0.028125,
+  "non_transmitted_trapped": 0,
+  "mean_first_passage_s": 0.655689057171094,
+  "median_first_passage_s": 0.514337027916545,
+  "p10_first_passage_s": 0.19299304393445318,
+  "p90_first_passage_s": 1.2974294246026317,
+  "mean_path_steps_success": 6628.28128,
+  "median_path_steps_success": 3183.0,
+  "D_eff_m2_s": 7.625565724052204e-17,
+  "tortuosity_steps_over_thickness": 331.414064,
+  "elapsed_s": 1.786027193069458,
+  "model": "single_al2o3_10nm_pinhole_only",
+  "environment": {
+    "temperature_c": 38.0,
+    "temperature_k": 311.15,
+    "rh": 0.9
+  },
+  "total_thickness_nm": 10.0,
+  "width_nm": 320.0,
+  "dx_nm": 0.5,
+  "max_events": 5000000,
+  "barriers_eV": {
+    "E_Al_pinhole": 0.58,
+    "E_surface": 0.45,
+    "E_Al_matrix": "infinite (impermeable)"
+  },
+  "geometry_metadata": {
+    "pinholes": [
+      {
+        "x_nm": 63.69634906468236,
+        "diameter_nm": 1.8870167292407483
+      },
+      {
+        "x_nm": 115.72048665974401,
+        "diameter_nm": 1.6349585643090756
+      },
+      {
+        "x_nm": 178.3767610644728,
+        "diameter_nm": 1.0923076938990923
+      },
+      {
+        "x_nm": 254.582316938204,
+        "diameter_nm": 1.6503794729634147
+      }
+    ],
+    "pinhole_coverage": 0.028125,
+    "pinhole_cell_fraction": 0.020390625,
+    "row_jitter_cells": 0.25
+  }
+}

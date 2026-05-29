@@ -1,0 +1,10 @@
+{
+  "generated": "/home/xiao/文档/KMC/al2o3_reference_envelope",
+  "references": [
+    "dense_uv_ald_10nm_pet_mocon",
+    "thermal_ald_10nm_pet_mocon",
+    "pa_ald_20nm_pen_context"
+  ],
+  "nonthrough_reference": "al2o3_10nm_staggered_nonthrough",
+  "note": "Use these references as an uncertainty envelope, not as one-to-one KMC trajectory equivalents."
+}

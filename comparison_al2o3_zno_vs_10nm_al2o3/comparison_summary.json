@@ -1,0 +1,81 @@
+{
+  "bilayer_source": "/home/xiao/文档/KMC/kmc_bilayer_all/kmc_bilayer_corrected_200k_v2/transport_metrics/kmc_transport_metrics.json",
+  "single_al2o3_source": "/home/xiao/文档/KMC/kmc_al2o3_10nm_200k/transport_metrics/kmc_transport_metrics.json",
+  "comparison": [
+    {
+      "metric": "Ptrans",
+      "bilayer_4p5nm_Al2O3_6nm_ZnO": 0.1833,
+      "single_10nm_Al2O3": 1.0,
+      "direction_for_better_barrier": "lower",
+      "bilayer_advantage": "5.45554x lower"
+    },
+    {
+      "metric": "FPT mean / s",
+      "bilayer_4p5nm_Al2O3_6nm_ZnO": 4258.359460179443,
+      "single_10nm_Al2O3": 0.655689057171094,
+      "direction_for_better_barrier": "higher",
+      "bilayer_advantage": "6494.48x higher"
+    },
+    {
+      "metric": "FPT median / s",
+      "bilayer_4p5nm_Al2O3_6nm_ZnO": 4173.3980303426615,
+      "single_10nm_Al2O3": 0.514337027916545,
+      "direction_for_better_barrier": "higher",
+      "bilayer_advantage": "8114.13x higher"
+    },
+    {
+      "metric": "Lpath mean / mm",
+      "bilayer_4p5nm_Al2O3_6nm_ZnO": 1.2042891441625752,
+      "single_10nm_Al2O3": 0.0033141406399999998,
+      "direction_for_better_barrier": "higher",
+      "bilayer_advantage": "363.379x higher"
+    },
+    {
+      "metric": "Lpath median / mm",
+      "bilayer_4p5nm_Al2O3_6nm_ZnO": 1.181274,
+      "single_10nm_Al2O3": 0.0015915,
+      "direction_for_better_barrier": "higher",
+      "bilayer_advantage": "742.239x higher"
+    },
+    {
+      "metric": "tau mean",
+      "bilayer_4p5nm_Al2O3_6nm_ZnO": 114694.20420595953,
+      "single_10nm_Al2O3": 331.414064,
+      "direction_for_better_barrier": "higher",
+      "bilayer_advantage": "346.075x higher"
+    },
+    {
+      "metric": "tau median",
+      "bilayer_4p5nm_Al2O3_6nm_ZnO": 112502.28571428571,
+      "single_10nm_Al2O3": 159.15,
+      "direction_for_better_barrier": "higher",
+      "bilayer_advantage": "706.895x higher"
+    },
+    {
+      "metric": "D_eff / m2 s-1",
+      "bilayer_4p5nm_Al2O3_6nm_ZnO": 1.2945126055111633e-20,
+      "single_10nm_Al2O3": 7.625565724052204e-17,
+      "direction_for_better_barrier": "lower",
+      "bilayer_advantage": "5890.68x lower"
+    },
+    {
+      "metric": "WVTR ideal vapor / g m-2 day-1",
+      "bilayer_4p5nm_Al2O3_6nm_ZnO": 4.426369452151686e-06,
+      "single_10nm_Al2O3": 0.027378064596861113,
+      "direction_for_better_barrier": "lower",
+      "bilayer_advantage": "6185.22x lower"
+    },
+    {
+      "metric": "WVTR sorbed C1 / g m-2 day-1",
+      "bilayer_4p5nm_Al2O3_6nm_ZnO": 0.00072113968506327,
+      "single_10nm_Al2O3": 4.460406907838407,
+      "direction_for_better_barrier": "lower",
+      "bilayer_advantage": "6185.22x lower"
+    }
+  ],
+  "interpretation": {
+    "main_result": "The Al2O3/ZnO bilayer is superior under this KMC model because it suppresses direct pinhole transmission and replaces it with a tortuous ZnO grain-boundary network.",
+    "important_assumption": "The 10 nm Al2O3 reference uses the same pinhole-spacing and diameter model as the Al2O3 part of the bilayer, extended through 10 nm thickness.",
+    "wvtr_note": "Absolute WVTR depends on the selected concentration difference, but the relative ranking is stable when the same boundary condition is used."
+  }
+}

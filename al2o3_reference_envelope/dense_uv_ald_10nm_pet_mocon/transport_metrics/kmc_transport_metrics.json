@@ -1,0 +1,79 @@
+{
+  "source_raw_npz": "literature_calibrated_no_raw_kmc",
+  "model": "dense_uv_ald_10nm_pet_mocon",
+  "assumptions": {
+    "dx_nm": 0.5,
+    "film_thickness_nm": 10.0,
+    "temperature_c": 38.0,
+    "rh_high": 0.9,
+    "rh_low": 0.0,
+    "wvtr_formula": "WVTR = D_eff * delta_C / L * 86400 * 1000, units g m^-2 day^-1",
+    "literature_sorbed_delta_c_kg_m3_from_C1_0.00677_g_cm3": 6.77,
+    "transport_assumption": "Literature-calibrated continuum reference. Ptrans/FPT/Lpath/tau are not defined without a microscopic trajectory model.",
+    "label": "10 nm UV-ALD Al2O3/PET, MOCON literature-calibrated",
+    "literature_note": "RSC Advances 2017, UV-enhanced ALD Al2O3 moisture barrier; reported 10 nm UV-ALD Al2O3 WVTR around 1.42e-3 g m^-2 day^-1.",
+    "calibration_delta_c_kg_m3": 6.77
+  },
+  "Ptrans": NaN,
+  "particles": null,
+  "transmitted": null,
+  "non_transmitted": null,
+  "FPT_success_s": {
+    "count": 0,
+    "mean": null,
+    "median": null,
+    "std": null,
+    "p01": null,
+    "p05": null,
+    "p10": null,
+    "p25": null,
+    "p75": null,
+    "p90": null,
+    "p95": null,
+    "p99": null,
+    "min": null,
+    "max": null
+  },
+  "path_length_success_mm": {
+    "count": 0,
+    "mean": null,
+    "median": null,
+    "std": null,
+    "p01": null,
+    "p05": null,
+    "p10": null,
+    "p25": null,
+    "p75": null,
+    "p90": null,
+    "p95": null,
+    "p99": null,
+    "min": null,
+    "max": null
+  },
+  "tortuosity_success": {
+    "count": 0,
+    "mean": null,
+    "median": null,
+    "std": null,
+    "p01": null,
+    "p05": null,
+    "p10": null,
+    "p25": null,
+    "p75": null,
+    "p90": null,
+    "p95": null,
+    "p99": null,
+    "min": null,
+    "max": null
+  },
+  "D_eff_m2_s": {
+    "success_mean_FPT": 2.427649214946113e-20,
+    "success_median_FPT": null
+  },
+  "WVTR_g_m2_day": {
+    "using_ideal_vapor_delta_c": 8.715987695925975e-06,
+    "using_user_delta_c": null,
+    "using_literature_sorbed_C1_6p77_kg_m3": 0.00142,
+    "relative_WVTR_factor_equals_relative_D_eff": true
+  }
+}

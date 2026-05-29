@@ -1,0 +1,110 @@
+{
+  "rows": [
+    {
+      "id": "bilayer",
+      "label": "4.5 nm Al2O3 / 6 nm ZnO bilayer KMC",
+      "kind": "KMC result",
+      "source": "/home/xiao/文档/KMC/kmc_bilayer_all/kmc_bilayer_corrected_200k_v2/transport_metrics/kmc_transport_metrics.json",
+      "Ptrans": 0.1833,
+      "FPT mean s": 4258.359460179443,
+      "Lpath mean mm": 1.2042891441625752,
+      "tau mean": 114694.20420595953,
+      "D_eff m2/s": 1.2945126055111633e-20,
+      "WVTR C1 g/m2/day": 0.00072113968506327,
+      "WVTR ideal vapor g/m2/day": 4.426369452151686e-06
+    },
+    {
+      "id": "al2o3_dense_uv_ald_literature",
+      "label": "10 nm high-quality UV-ALD Al2O3 literature reference",
+      "kind": "literature-calibrated",
+      "source": "/home/xiao/文档/KMC/al2o3_reference_envelope/dense_uv_ald_10nm_pet_mocon/transport_metrics/kmc_transport_metrics.json",
+      "Ptrans": NaN,
+      "FPT mean s": null,
+      "Lpath mean mm": null,
+      "tau mean": null,
+      "D_eff m2/s": 2.427649214946113e-20,
+      "WVTR C1 g/m2/day": 0.00142,
+      "WVTR ideal vapor g/m2/day": 8.715987695925975e-06
+    },
+    {
+      "id": "al2o3_pa_ald_20nm_context",
+      "label": "20 nm PA-ALD Al2O3 literature context",
+      "kind": "literature-calibrated context",
+      "source": "/home/xiao/文档/KMC/al2o3_reference_envelope/pa_ald_20nm_pen_context/transport_metrics/kmc_transport_metrics.json",
+      "Ptrans": NaN,
+      "FPT mean s": null,
+      "Lpath mean mm": null,
+      "tau mean": null,
+      "D_eff m2/s": 8.548060616007441e-20,
+      "WVTR C1 g/m2/day": 0.005,
+      "WVTR ideal vapor g/m2/day": 3.069009752086611e-05
+    },
+    {
+      "id": "al2o3_thermal_ald_literature",
+      "label": "10 nm thermal ALD Al2O3 poorer-process reference",
+      "kind": "literature-calibrated",
+      "source": "/home/xiao/文档/KMC/al2o3_reference_envelope/thermal_ald_10nm_pet_mocon/transport_metrics/kmc_transport_metrics.json",
+      "Ptrans": NaN,
+      "FPT mean s": null,
+      "Lpath mean mm": null,
+      "tau mean": null,
+      "D_eff m2/s": 1.0445730072761092e-17,
+      "WVTR C1 g/m2/day": 0.611,
+      "WVTR ideal vapor g/m2/day": 0.0037503299170498386
+    },
+    {
+      "id": "al2o3_staggered_nonthrough",
+      "label": "10 nm Al2O3 staggered non-through defect idealization",
+      "kind": "connectivity-limited KMC geometry",
+      "source": "/home/xiao/文档/KMC/al2o3_reference_envelope/al2o3_10nm_staggered_nonthrough/transport_metrics/kmc_transport_metrics.json",
+      "Ptrans": 0.0,
+      "FPT mean s": null,
+      "Lpath mean mm": null,
+      "tau mean": null,
+      "D_eff m2/s": 0.0,
+      "WVTR C1 g/m2/day": 0.0,
+      "WVTR ideal vapor g/m2/day": 0.0
+    },
+    {
+      "id": "al2o3_through_pinhole_worst",
+      "label": "10 nm Al2O3 through-pinhole worst-case KMC",
+      "kind": "KMC extreme leakage bound",
+      "source": "/home/xiao/文档/KMC/kmc_al2o3_10nm_200k/transport_metrics/kmc_transport_metrics.json",
+      "Ptrans": 1.0,
+      "FPT mean s": 0.655689057171094,
+      "Lpath mean mm": 0.0033141406399999998,
+      "tau mean": 331.414064,
+      "D_eff m2/s": 7.625565724052204e-17,
+      "WVTR C1 g/m2/day": 4.460406907838407,
+      "WVTR ideal vapor g/m2/day": 0.027378064596861113
+    }
+  ],
+  "relations_to_bilayer": [
+    {
+      "reference": "10 nm high-quality UV-ALD Al2O3 literature reference",
+      "wvtr_relation": "1.97x lower",
+      "deff_relation": "1.88x lower"
+    },
+    {
+      "reference": "20 nm PA-ALD Al2O3 literature context",
+      "wvtr_relation": "6.93x lower",
+      "deff_relation": "6.6x lower"
+    },
+    {
+      "reference": "10 nm thermal ALD Al2O3 poorer-process reference",
+      "wvtr_relation": "847x lower",
+      "deff_relation": "807x lower"
+    },
+    {
+      "reference": "10 nm Al2O3 staggered non-through defect idealization",
+      "wvtr_relation": "bilayer higher than ideal zero-leakage reference",
+      "deff_relation": "bilayer higher than ideal zero-leakage reference"
+    },
+    {
+      "reference": "10 nm Al2O3 through-pinhole worst-case KMC",
+      "wvtr_relation": "6.19e+03x lower",
+      "deff_relation": "5.89e+03x lower"
+    }
+  ],
+  "output_dir": "/home/xiao/文档/KMC/comparison_al2o3_zno_vs_10nm_al2o3_envelope"
+}

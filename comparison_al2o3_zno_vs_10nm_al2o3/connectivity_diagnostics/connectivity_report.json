@@ -1,0 +1,72 @@
+{
+  "single_10nm_al2o3": {
+    "raw_npz": "/home/xiao/文档/KMC/kmc_al2o3_10nm_200k/al2o3_10nm_raw.npz",
+    "grid_shape": [
+      20,
+      640
+    ],
+    "permeable_cell_fraction": 0.020390625,
+    "components": 4,
+    "top_to_bottom_percolating_components": 4,
+    "percolating_components": [
+      {
+        "cells": 80,
+        "touches_top": true,
+        "touches_bottom": true,
+        "min_y": 0,
+        "max_y": 19,
+        "x_span_cells": 5
+      },
+      {
+        "cells": 70,
+        "touches_top": true,
+        "touches_bottom": true,
+        "min_y": 0,
+        "max_y": 19,
+        "x_span_cells": 4
+      },
+      {
+        "cells": 46,
+        "touches_top": true,
+        "touches_bottom": true,
+        "min_y": 0,
+        "max_y": 19,
+        "x_span_cells": 3
+      },
+      {
+        "cells": 65,
+        "touches_top": true,
+        "touches_bottom": true,
+        "min_y": 0,
+        "max_y": 19,
+        "x_span_cells": 4
+      }
+    ],
+    "Ptrans": 1.0,
+    "FPT_mean_s": 0.655689057171094,
+    "steps_mean_success": 6628.28128
+  },
+  "bilayer_al2o3_zno": {
+    "raw_npz": "/home/xiao/文档/KMC/kmc_bilayer_all/kmc_bilayer_corrected_200k_v2/bilayer_corrected_raw.npz",
+    "grid_shape": [
+      21,
+      640
+    ],
+    "permeable_cell_fraction": 0.19635416666666666,
+    "components": 31,
+    "top_to_bottom_percolating_components": 1,
+    "percolating_components": [
+      {
+        "cells": 2504,
+        "touches_top": true,
+        "touches_bottom": true,
+        "min_y": 0,
+        "max_y": 20,
+        "x_span_cells": 640
+      }
+    ],
+    "Ptrans": 0.1833,
+    "FPT_mean_s": 4258.359460179443,
+    "steps_mean_success": 2408578.28832515
+  }
+}
