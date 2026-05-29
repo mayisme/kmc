@@ -1,0 +1,181 @@
+{
+  "particles": 10000,
+  "transmitted": 43,
+  "success_rate": 0.0043,
+  "pinhole_area_fraction": 0.001015625,
+  "mean_first_passage_s": 78.03735303119123,
+  "median_first_passage_s": 69.81551903042593,
+  "p10_first_passage_s": 26.193573219528915,
+  "p90_first_passage_s": 130.73652928186266,
+  "mean_path_steps_success": 47920.16279069767,
+  "median_path_steps_success": 45037.0,
+  "D_eff_m2_s": 7.063924884531484e-19,
+  "tortuosity_steps_over_thickness": 2281.912513842746,
+  "non_transmitted_trapped": 9957,
+  "trapped_mean_depth_nm": 2.446168524656021,
+  "trapped_median_depth_nm": 4.0,
+  "elapsed_s": 2.4809792041778564,
+  "model": "bilayer_3d_on_lattice_v1",
+  "environment": {
+    "temperature_c": 38.0,
+    "temperature_k": 311.15,
+    "rh": 0.9
+  },
+  "total_thickness_nm": 10.5,
+  "width_x_nm": 80.0,
+  "width_y_nm": 80.0,
+  "dx_nm": 0.5,
+  "max_events": 80000,
+  "barriers_eV": {
+    "E_Al_pinhole": 0.58,
+    "E_ZnO_GB": 0.72,
+    "E_interface": 0.62,
+    "E_surface": 0.45,
+    "E_Al_matrix": "infinite (impermeable)",
+    "E_ZnO_bulk": "infinite (impermeable)"
+  },
+  "geometry_metadata": {
+    "geometry": "3d_on_lattice_bilayer",
+    "shape_zxy": [
+      21,
+      160,
+      160
+    ],
+    "al_cells": 9,
+    "zno_cells": 12,
+    "total_thickness_nm": 10.5,
+    "pinhole_count": 2,
+    "pinhole_coverage_fraction": 0.001015625,
+    "pinholes": [
+      {
+        "x_nm": 4.735244851008602,
+        "y_nm": 77.54298304051983,
+        "diameter_nm": 1.8426175182577897
+      },
+      {
+        "x_nm": 10.880261570423828,
+        "y_nm": 9.548244061739855,
+        "diameter_nm": 1.8379576442480388
+      }
+    ],
+    "al2o3_free_volume_defects": 18,
+    "al2o3_free_volume_defects_detail": [
+      {
+        "x_nm": 60.51248459726895,
+        "y_nm": 21.9779853067001,
+        "diameter_nm": 1.2789777385738843,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 50.23034774756851,
+        "y_nm": 7.038334474982237,
+        "diameter_nm": 1.4704372501092715,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 17.581662669761666,
+        "y_nm": 67.97793516590073,
+        "diameter_nm": 1.1132731835587824,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 66.61358767627317,
+        "y_nm": 26.525991803713175,
+        "diameter_nm": 1.0367460877867076,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 8.505423888625607,
+        "y_nm": 79.29174163256258,
+        "diameter_nm": 0.8929803889945573,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 15.64968485685017,
+        "y_nm": 28.51270388763683,
+        "diameter_nm": 1.2190576300499023,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 0.9642498395978105,
+        "y_nm": 78.08059614397298,
+        "diameter_nm": 1.5241802523837724,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 50.19946930426257,
+        "y_nm": 59.906269929944784,
+        "diameter_nm": 1.0874763589727898,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 34.38678542731263,
+        "y_nm": 41.69402834063917,
+        "diameter_nm": 1.1930573336290289,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 72.15012478433704,
+        "y_nm": 60.025422956445375,
+        "diameter_nm": 1.688507131972628,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 5.781840259965874,
+        "y_nm": 39.5043531992073,
+        "diameter_nm": 1.5124315786362,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 36.01684879107134,
+        "y_nm": 13.809039082231829,
+        "diameter_nm": 1.160434731211068,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 44.49880397888321,
+        "y_nm": 23.938910359692187,
+        "diameter_nm": 0.8996705957591133,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 5.531680201514124,
+        "y_nm": 20.767359738171713,
+        "diameter_nm": 1.0563285443905717,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 34.818184168326205,
+        "y_nm": 76.76608408097422,
+        "diameter_nm": 1.7289585487527168,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 67.97010684516226,
+        "y_nm": 65.07727195614333,
+        "diameter_nm": 1.5333696009830027,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 11.476855864948012,
+        "y_nm": 62.783330852711934,
+        "diameter_nm": 1.361227392196333,
+        "through_pinhole": false
+      },
+      {
+        "x_nm": 30.786458848785525,
+        "y_nm": 18.227843014081422,
+        "diameter_nm": 1.5629590174982213,
+        "through_pinhole": false
+      }
+    ],
+    "zno_grain_count": 116,
+    "zno_grain_model": "2d_periodic_voronoi_columns_with_z_wavy_gb_surfaces",
+    "zno_gb_fraction_before_blocking": 0.2265234375,
+    "gb_block_fraction": 0.2,
+    "periodic_axes": [
+      "x",
+      "y"
+    ]
+  }
+}
