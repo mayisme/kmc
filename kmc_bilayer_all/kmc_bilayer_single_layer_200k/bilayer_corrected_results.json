@@ -1,0 +1,82 @@
+{
+  "particles": 200000,
+  "transmitted": 93717,
+  "success_rate": 0.468585,
+  "pinhole_area_fraction": 0.0265625,
+  "mean_first_passage_s": 4097.247676021099,
+  "median_first_passage_s": 3815.206716494802,
+  "p10_first_passage_s": 691.8545145603545,
+  "p90_first_passage_s": 7996.75530289731,
+  "mean_path_steps_success": 2199946.0609814655,
+  "median_path_steps_success": 2050989.0,
+  "D_eff_m2_s": 1.3454153704843334e-20,
+  "tortuosity_steps_over_thickness": 104759.33623721264,
+  "non_transmitted_trapped": 106283,
+  "trapped_mean_depth_nm": 2.4008025742592887,
+  "trapped_median_depth_nm": 2.5,
+  "elapsed_s": 603.5370531082153,
+  "model": "corrected_bilayer_v2",
+  "corrections": [
+    "Al2O3_matrix_impermeable",
+    "ZnO_bulk_impermeable",
+    "surface_reflection_mechanism",
+    "GB_dead_end_blockage",
+    "D_eff_1D_formula"
+  ],
+  "environment": {
+    "temperature_c": 38.0,
+    "temperature_k": 311.15,
+    "rh": 0.9
+  },
+  "periods": 1,
+  "total_thickness_nm": 10.5,
+  "width_nm": 320.0,
+  "dx_nm": 0.5,
+  "max_events": 5000000,
+  "barriers_eV": {
+    "E_Al_pinhole": 0.58,
+    "E_ZnO_GB": 0.72,
+    "E_interface": 0.62,
+    "E_surface": 0.45,
+    "E_Al_matrix": "infinite (impermeable)",
+    "E_ZnO_bulk": "infinite (impermeable)"
+  },
+  "gb_block_fraction": 0.2,
+  "geometry_metadata": {
+    "periods": [
+      {
+        "period": 1,
+        "pinholes": [
+          {
+            "x_nm": 4.735244851008602,
+            "diameter_nm": 1.1560283025768128
+          },
+          {
+            "x_nm": 83.81386349120353,
+            "diameter_nm": 1.4177769828427746
+          },
+          {
+            "x_nm": 159.09238903893723,
+            "diameter_nm": 1.0461552016156315
+          },
+          {
+            "x_nm": 230.1345098173524,
+            "diameter_nm": 1.015615673823966
+          },
+          {
+            "x_nm": 283.2014442277379,
+            "diameter_nm": 1.6704372501092717
+          }
+        ],
+        "zno_grain_count": 44,
+        "zno_crystal_structure": "polycrystalline hexagonal wurtzite ZnO",
+        "zno_grain_model": "single_truncated_lateral_wurtzite_grain_layer",
+        "zno_mean_grain_size_nm": 7.5,
+        "zno_thickness_to_mean_grain_size_ratio": 0.8,
+        "zno_gb_fraction": 0.15,
+        "gb_blocked_fraction": 0.2,
+        "pinhole_coverage": 0.0265625
+      }
+    ]
+  }
+}

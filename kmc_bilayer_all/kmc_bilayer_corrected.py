@@ -5,8 +5,9 @@ Key corrections vs previous version:
 1. Al2O3 dense matrix: IMPERMEABLE (no jumps allowed, not just high barrier)
 2. ZnO crystalline bulk: IMPERMEABLE (wurtzite grains block water vapor)
 3. ZnO grain boundaries: only diffusion pathway, but NOT straight-through
+   - For sub-10 nm ZnO, use one truncated lateral wurtzite grain layer
    - Introduce dead-end segments (~20% of GB blocked)
-   - Closed polygonal Voronoi network forces tortuous lateral diffusion
+   - Grain-boundary offsets force lateral diffusion before exit
 4. Al2O3 surface: particles not hitting pinhole entrance are REFLECTED
 5. D_eff formula: L^2 / (2*tau) for 1D first-passage (not 6*tau)
 """
@@ -233,8 +234,9 @@ def build_bilayer_structure(width_nm=320.0, dx_nm=0.5, seed=20260515,
     Key differences:
     - Al2O3 matrix cells are CELL_AL_MATRIX (impermeable, rate=0)
     - ZnO bulk cells are CELL_ZNO_BULK (impermeable, rate=0)
-    - ZnO GB network from Voronoi, with gb_block_fraction of GB cells
-      converted to CELL_BLOCKED (dead ends, rate=0)
+    - Sub-10 nm ZnO is modeled as one laterally tessellated wurtzite
+      grain layer truncated by the film surfaces, not as stacked grains.
+    - ZnO GB cells can be converted to CELL_BLOCKED (dead ends, rate=0)
     - Returns pinhole_mask for surface reflection
     """
     rng = np.random.default_rng(seed)
@@ -291,52 +293,86 @@ def build_bilayer_structure(width_nm=320.0, dx_nm=0.5, seed=20260515,
                     pinhole_mask[xi] = 1
             pinholes.append({'x_nm': float(c_nm), 'diameter_nm': float(d_nm)})
 
-        # --- ZnO Voronoi grain boundary network ---
+        # --- ZnO grain boundary network ---
         zno_h = z_end - z_start
         mean_grain_nm = 0.5 * (grain_min_nm + grain_max_nm)
         mean_grain_cells = max(2.0, mean_grain_nm / dx_nm)
-        zno_area_cells = width * zno_h
-        n_grains = max(4, int(round(zno_area_cells / (mean_grain_cells ** 2))))
+        thickness_to_grain = zno_nm / mean_grain_nm
+        if thickness_to_grain < 1.0:
+            grain_model = 'single_truncated_lateral_wurtzite_grain_layer'
+            labels = np.empty((zno_h, width), dtype=np.int32)
+            boundary_cols = []
+            x_nm = rng.uniform(0.0, mean_grain_nm)
+            grain_id = 0
+            last_col = 0
+            while x_nm < width_nm:
+                col = int(round(x_nm / dx_nm)) % width
+                if col != last_col:
+                    labels[:, last_col:col] = grain_id
+                    boundary_cols.append(col)
+                    grain_id += 1
+                    last_col = col
+                x_nm += rng.uniform(grain_min_nm, grain_max_nm)
+            labels[:, last_col:] = grain_id
+            n_grains = grain_id + 1
 
-        nuclei_x = rng.uniform(0, width, size=n_grains)
-        nuclei_y = rng.uniform(0, zno_h, size=n_grains)
+            gb_mask = np.zeros((zno_h, width), dtype=bool)
+            for col in boundary_cols:
+                gb_mask[:, col % width] = True
+                gb_mask[:, (col - 1) % width] = True
 
-        # Offset nuclei from pinholes to prevent vertical alignment
-        for c_nm in centers:
-            off_nm = rng.choice([-1.0, 1.0]) * rng.uniform(offset_min_nm, offset_max_nm)
-            nuclei_x = np.append(nuclei_x, ((c_nm + off_nm) / dx_nm) % width)
-            nuclei_y = np.append(nuclei_y, rng.uniform(0, zno_h))
-        n_grains = nuclei_x.size
+            # Pinholes seldom land exactly above a boundary in an ultrathin
+            # single grain layer. Add offset GB segments that require interface
+            # lateral search before the molecule enters the ZnO GB.
+            for c_nm in centers:
+                off_nm = rng.choice([-1.0, 1.0]) * rng.uniform(offset_min_nm, offset_max_nm)
+                col = int(round(((c_nm + off_nm) % width_nm) / dx_nm)) % width
+                gb_mask[:, col] = True
+                gb_mask[:, (col - 1) % width] = True
+        else:
+            grain_model = 'two_dimensional_voronoi_grain_network'
+            zno_area_cells = width * zno_h
+            n_grains = max(4, int(round(zno_area_cells / (mean_grain_cells ** 2))))
 
-        # Voronoi labeling
-        labels = np.empty((zno_h, width), dtype=np.int32)
-        for yy in range(zno_h):
-            for xx in range(width):
-                best = 0
-                best_d2 = 1.0e30
-                for gi in range(n_grains):
-                    dxp = abs(xx - nuclei_x[gi])
-                    if dxp > 0.5 * width:
-                        dxp = width - dxp
-                    dyp = yy - nuclei_y[gi]
-                    # Slight columnar anisotropy
-                    d2 = dxp * dxp + 0.65 * dyp * dyp
-                    if d2 < best_d2:
-                        best_d2 = d2
-                        best = gi
-                labels[yy, xx] = best
+            nuclei_x = rng.uniform(0, width, size=n_grains)
+            nuclei_y = rng.uniform(0, zno_h, size=n_grains)
 
-        # Extract GB mask
-        gb_mask = np.zeros((zno_h, width), dtype=bool)
-        for yy in range(zno_h):
-            for xx in range(width):
-                lab = labels[yy, xx]
-                if labels[yy, (xx - 1) % width] != lab or labels[yy, (xx + 1) % width] != lab:
-                    gb_mask[yy, xx] = True
-                elif yy > 0 and labels[yy - 1, xx] != lab:
-                    gb_mask[yy, xx] = True
-                elif yy + 1 < zno_h and labels[yy + 1, xx] != lab:
-                    gb_mask[yy, xx] = True
+            # Offset nuclei from pinholes to prevent vertical alignment
+            for c_nm in centers:
+                off_nm = rng.choice([-1.0, 1.0]) * rng.uniform(offset_min_nm, offset_max_nm)
+                nuclei_x = np.append(nuclei_x, ((c_nm + off_nm) / dx_nm) % width)
+                nuclei_y = np.append(nuclei_y, rng.uniform(0, zno_h))
+            n_grains = nuclei_x.size
+
+            # Voronoi labeling
+            labels = np.empty((zno_h, width), dtype=np.int32)
+            for yy in range(zno_h):
+                for xx in range(width):
+                    best = 0
+                    best_d2 = 1.0e30
+                    for gi in range(n_grains):
+                        dxp = abs(xx - nuclei_x[gi])
+                        if dxp > 0.5 * width:
+                            dxp = width - dxp
+                        dyp = yy - nuclei_y[gi]
+                        # Slight columnar anisotropy
+                        d2 = dxp * dxp + 0.65 * dyp * dyp
+                        if d2 < best_d2:
+                            best_d2 = d2
+                            best = gi
+                    labels[yy, xx] = best
+
+            # Extract GB mask
+            gb_mask = np.zeros((zno_h, width), dtype=bool)
+            for yy in range(zno_h):
+                for xx in range(width):
+                    lab = labels[yy, xx]
+                    if labels[yy, (xx - 1) % width] != lab or labels[yy, (xx + 1) % width] != lab:
+                        gb_mask[yy, xx] = True
+                    elif yy > 0 and labels[yy - 1, xx] != lab:
+                        gb_mask[yy, xx] = True
+                    elif yy + 1 < zno_h and labels[yy + 1, xx] != lab:
+                        gb_mask[yy, xx] = True
 
         # Mark GB cells
         grid[z_start:z_end, :][gb_mask] = CELL_ZNO_GB
@@ -365,6 +401,10 @@ def build_bilayer_structure(width_nm=320.0, dx_nm=0.5, seed=20260515,
         metadata['periods'].append({
             'period': p + 1, 'pinholes': pinholes,
             'zno_grain_count': int(n_grains),
+            'zno_crystal_structure': 'polycrystalline hexagonal wurtzite ZnO',
+            'zno_grain_model': grain_model,
+            'zno_mean_grain_size_nm': float(mean_grain_nm),
+            'zno_thickness_to_mean_grain_size_ratio': float(thickness_to_grain),
             'zno_gb_fraction': gb_frac,
             'gb_blocked_fraction': float(gb_block_fraction),
             'pinhole_coverage': float(pinhole_mask.sum() / width),
